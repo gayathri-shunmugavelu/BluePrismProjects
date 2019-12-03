@@ -1,3 +1,3 @@
 # BluePrismProjects
 Blue Prism Hands-on on Projects
-Logging into Gmail Automatically
+Logging into Gmail and Sending Email Automatically
