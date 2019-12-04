@@ -1,7 +1,0 @@
-<Promise AllocationRuleId="MRO_SCH" FulfillmentType="PRODUCT_SOURCING" CheckInventory="Y" DetermineCarrierService="Y" EnterpriseCode="Monotaro" OrganizationCode="Monotaro">
-	<PromiseLines>
-		<PromiseLine DeliveryMethod="SHP" ItemID="POCItem52"LineId="1" ProductClass="GOOD" RequiredQty="50" CarrierServiceCode="MROGround" UnitOfMeasure="EACH">
-			<ShipToAddress City="Chiyoda"  State="Kyoto" Country="US" ZipCode="590000" />
-		</PromiseLine>
-	</PromiseLines>
-</Promise>
