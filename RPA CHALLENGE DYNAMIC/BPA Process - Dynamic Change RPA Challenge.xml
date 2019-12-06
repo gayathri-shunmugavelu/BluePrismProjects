@@ -1,0 +1,379 @@
+﻿<process name="Dynamic Change RPA Challenge" version="1.0" bpversion="6.4.0.8445" narrative="" byrefcollection="true" preferredid="eb0270d4-41e3-4925-ac23-a2c74cd67ad3">
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="94af449f-2af5-4e1f-8665-f661012e7ee0" type="Normal" published="False">
+    <name>Dynamic Field Change</name>
+    <view>
+      <camerax>116</camerax>
+      <cameray>-123</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="aaaff7a0-a05b-4e9b-8fab-5e07eece4e44" name="Start" type="Start">
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>0aaf7226-b109-4855-b924-fe12011975fb</onsuccess>
+  </stage>
+  <stage stageid="5e6b0410-d33b-41a7-8169-a29475a46174" name="End" type="End">
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="02b403dc-549e-4a35-b4ec-311124eea2fe" name="Stage1" type="ProcessInfo">
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="3cf0c3be-1eb0-44e7-95c3-78f22b05ef3c" name="Dynamic Field Change" type="SubSheetInfo">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>-195</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>90</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="85ac6fd0-bd55-4a48-8efe-94f5ca721052" name="Start" type="Start">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-420</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>f8d50be8-3f1f-4965-b9d1-2779811f09f9</onsuccess>
+  </stage>
+  <stage stageid="665afbcb-91b7-4ce5-8c6e-890823b3dfd8" name="End" type="End">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>360</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+  </stage>
+  <stage stageid="f8d50be8-3f1f-4965-b9d1-2779811f09f9" name="Create Instance" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-375</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="flag" name="Enable Events" narrative="Flag to indicate that events should be enabled / disabled on the attached instance - defaulted to True" expr="" />
+    </inputs>
+    <outputs>
+      <output type="number" name="handle" narrative="An integer which can be used to identify the created instance in subsequent actions" stage="handle" />
+    </outputs>
+    <onsuccess>3363805f-cd18-4f4a-bf08-d8a7144dc473</onsuccess>
+    <resource object="MS Excel VBO" action="Create Instance" />
+  </stage>
+  <stage stageid="3363805f-cd18-4f4a-bf08-d8a7144dc473" name="Open Workbook" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-330</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the required workbook should be opened. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="File name" narrative="The path and name of the file which should be opened." expr="&quot;C:\gayathri\RPA Blue Prism\dynamicparameter_Day5_eve_sunday\challenge.xlsx&quot;" />
+    </inputs>
+    <outputs>
+      <output type="text" name="Workbook Name" narrative="The name used by Excel to identify the workbook - usually this is the file name (without the path)." stage="Workbook Name" />
+    </outputs>
+    <onsuccess>48f43e4c-8629-460a-a30b-014d1ceccba1</onsuccess>
+    <resource object="MS Excel VBO" action="Open Workbook" />
+  </stage>
+  <stage stageid="bf70950c-2e1a-4dac-b5a7-65353051aab2" name="handle" type="Data">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-135</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>number</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="48f43e4c-8629-460a-a30b-014d1ceccba1" name="Get Data" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-285</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="number" name="handle" narrative="The integer handle identifying the instance on which the worksheet which should be retrieved resides. The default of zero indicates the currently active instance." expr="[handle]" />
+      <input type="text" name="Workbook Name" narrative="The name of the workbook which contains the sheet required. The default empty text indicates the currently active workbook on the specified instance." expr="[Workbook Name]" />
+      <input type="text" name="Worksheet Name" narrative="The name of the worksheet within the specified workbook which should be written to a collection. The default empty text indicates the currently active worksheet within the specified workbook." expr="&quot;Sheet1&quot;" />
+    </inputs>
+    <outputs>
+      <output type="collection" name="Data" narrative="The collection containing the data from the specified worksheet - the column IDs will be gleaned from the first row on the sheet being retrieved." stage="Challenge" />
+    </outputs>
+    <onsuccess>f08299d5-a3a5-4b2b-819a-383cd715f5f0</onsuccess>
+    <resource object="MS Excel VBO" action="Get Worksheet As Collection" />
+  </stage>
+  <stage stageid="ceb803ae-b492-4293-a45f-a73d6874b70c" name="Workbook Name" type="Data">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>90</displayx>
+    <displayy>-90</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f08299d5-a3a5-4b2b-819a-383cd715f5f0" name="Close Instance" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-240</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>6cd994aa-de1f-4195-be12-bebea03d7082</onsuccess>
+    <resource object="MS Excel VBO" action="Close All Instances" />
+  </stage>
+  <stage stageid="6cd994aa-de1f-4195-be12-bebea03d7082" name="Launch" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-195</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>70f87f1d-57bd-477e-8bb3-3b12c9b28925</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Launch" />
+  </stage>
+  <stage stageid="70f87f1d-57bd-477e-8bb3-3b12c9b28925" name="Start" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-150</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>1b0a4ae8-fc87-4e19-a1ce-0558450e4581</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Start" />
+  </stage>
+  <stage stageid="8723b717-2a2e-4294-a1af-b007cb156cd8" name="Last Name" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-15</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Last Name&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Last Name]" />
+    </inputs>
+    <onsuccess>a3fd228e-e22b-43fd-8fb6-e614a428ea8f</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="18dcb020-d7fa-4132-ac6b-ea093a0c91c6" name="Submit" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>255</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>99ea2c87-36f6-4a4c-8b10-9190f0ba4614</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Submit" />
+  </stage>
+  <stage stageid="0aaf7226-b109-4855-b924-fe12011975fb" name="Dynamic Field Change" type="SubSheet">
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>0</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>5e6b0410-d33b-41a7-8169-a29475a46174</onsuccess>
+    <processid>94af449f-2af5-4e1f-8665-f661012e7ee0</processid>
+  </stage>
+  <stage stageid="21719196-b268-4e44-9a67-6657ab333346" name="Challenge" type="Collection">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>15</displayx>
+    <displayy>-225</displayy>
+    <displaywidth>150</displaywidth>
+    <displayheight>60</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <datatype>collection</datatype>
+    <alwaysinit />
+    <collectioninfo>
+      <field name="First Name" type="text" />
+      <field name="Last Name" type="text" />
+      <field name="Company Name" type="text" />
+      <field name="Role in Company" type="text" />
+      <field name="Address" type="text" />
+      <field name="Email" type="text" />
+      <field name="Phone Number" type="text" />
+    </collectioninfo>
+  </stage>
+  <stage stageid="1b0a4ae8-fc87-4e19-a1ce-0558450e4581" name="Loop Start1" type="LoopStart">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-105</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>e9343e04-226c-4c9b-8169-aaf2ee68d2b7</onsuccess>
+    <groupid>72941142-cfc0-4f86-b6d7-3eb4d76c809e</groupid>
+    <looptype>ForEach</looptype>
+    <loopdata>Challenge</loopdata>
+  </stage>
+  <stage stageid="99ea2c87-36f6-4a4c-8b10-9190f0ba4614" name="Loop End1" type="LoopEnd">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>300</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <onsuccess>665afbcb-91b7-4ce5-8c6e-890823b3dfd8</onsuccess>
+    <groupid>72941142-cfc0-4f86-b6d7-3eb4d76c809e</groupid>
+  </stage>
+  <stage stageid="e9343e04-226c-4c9b-8169-aaf2ee68d2b7" name="First Name" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>-60</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;First Name&quot;" />
+      <input type="text" name="Write" expr="[Challenge.First Name]" />
+    </inputs>
+    <onsuccess>8723b717-2a2e-4294-a1af-b007cb156cd8</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="a3fd228e-e22b-43fd-8fb6-e614a428ea8f" name="Phone Number" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>30</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Phone Number&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Phone Number]" />
+    </inputs>
+    <onsuccess>040c5339-d0ab-44f2-baca-4d9d20cb442e</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="040c5339-d0ab-44f2-baca-4d9d20cb442e" name="Email" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>75</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Email&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Email]" />
+    </inputs>
+    <onsuccess>c7a6da87-757e-4b62-991b-b31f32c46216</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="c7a6da87-757e-4b62-991b-b31f32c46216" name="Address" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>120</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Address&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Address]" />
+    </inputs>
+    <onsuccess>70a3b0b7-7844-4fe3-a8f9-98007c5448f9</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="70a3b0b7-7844-4fe3-a8f9-98007c5448f9" name="Role in Company" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>165</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Role in Company&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Role in Company]" />
+    </inputs>
+    <onsuccess>7cf7a35e-6e92-41d8-a9b9-34ecb3163580</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+  <stage stageid="7cf7a35e-6e92-41d8-a9b9-34ecb3163580" name="Company Name" type="Action">
+    <subsheetid>94af449f-2af5-4e1f-8665-f661012e7ee0</subsheetid>
+    <narrative>
+    </narrative>
+    <displayx>255</displayx>
+    <displayy>210</displayy>
+    <displaywidth>60</displaywidth>
+    <displayheight>30</displayheight>
+    <font family="Segoe UI" size="10" style="Regular" color="000000" />
+    <inputs>
+      <input type="text" name="Text Value" expr="&quot;Company Name&quot;" />
+      <input type="text" name="Write" expr="[Challenge.Company Name]" />
+    </inputs>
+    <onsuccess>18dcb020-d7fa-4132-ac6b-ea093a0c91c6</onsuccess>
+    <resource object="RPA Challenge Dynamic" action="Dynamic change" />
+  </stage>
+</process>
